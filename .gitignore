@@ -2,6 +2,11 @@
 *.DS_Store
 *.Thumbs.db
 
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
 # Виртуальное окружение
 venv/
 .env/
@@ -17,3 +22,11 @@ __pycache__/
 # Личное/секретное
 credential-google-sheets.json
 *.env
+
+# Исключить папку logs и все её содержимое
+logs/
+*.log
+
+# Storage directories
+storage/temp/
+storage/cache/
