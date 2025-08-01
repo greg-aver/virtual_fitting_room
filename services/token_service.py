@@ -3,13 +3,13 @@
 """
 from typing import Optional
 from utils.logger import logger
-from storage.sheets_client import sheets_client
 
 
 class TokenService:
     """Сервис для управления токенами пользователей"""
     
-    def __init__(self):
+    def __init__(self, sheets_client):
+        self.sheets_client = sheets_client
         self.initial_tokens = 10
         
     async def get_user_tokens(self, user_id: int) -> Optional[int]:
@@ -22,7 +22,7 @@ class TokenService:
         Returns:
             Количество токенов или None при ошибке
         """
-        if not sheets_client.worksheet:
+        if not self.sheets_client.worksheet:
             logger.error("Worksheet not initialized")
             return None
             
@@ -30,7 +30,7 @@ class TokenService:
             # Находим пользователя
             existing_cell = None
             try:
-                existing_cell = sheets_client.worksheet.find(str(user_id))
+                existing_cell = self.sheets_client.worksheet.find(str(user_id))
             except Exception:
                 logger.warning(f"User {user_id} not found in sheet")
                 return None
@@ -38,14 +38,14 @@ class TokenService:
             if existing_cell and existing_cell.col == 1:  # Найден в первом столбце (ID)
                 row_num = existing_cell.row
                 # Получаем значение из столбца F (tokens)
-                tokens_cell = sheets_client.worksheet.cell(row_num, 6)  # 6 = столбец F
+                tokens_cell = self.sheets_client.worksheet.cell(row_num, 6)  # 6 = столбец F
                 
                 try:
                     # Если ячейка пустая или None, это старый пользователь - даем ему 10 токенов
                     if tokens_cell.value is None or tokens_cell.value == "":
                         logger.info(f"User {user_id} has empty tokens field, setting to 10")
                         # Устанавливаем токены для старых пользователей
-                        sheets_client.worksheet.update_cell(row_num, 6, 10)
+                        self.sheets_client.worksheet.update_cell(row_num, 6, 10)
                         return 10
                     
                     tokens = int(tokens_cell.value)
@@ -54,7 +54,7 @@ class TokenService:
                 except ValueError:
                     logger.error(f"Invalid tokens value for user {user_id}: {tokens_cell.value}")
                     # Для некорректных значений тоже ставим 10
-                    sheets_client.worksheet.update_cell(row_num, 6, 10)
+                    self.sheets_client.worksheet.update_cell(row_num, 6, 10)
                     return 10
             
             return None
@@ -73,7 +73,7 @@ class TokenService:
         Returns:
             True если успешно, False при ошибке
         """
-        if not sheets_client.worksheet:
+        if not self.sheets_client.worksheet:
             logger.error("Worksheet not initialized")
             return False
             
@@ -81,7 +81,7 @@ class TokenService:
             # Находим пользователя
             existing_cell = None
             try:
-                existing_cell = sheets_client.worksheet.find(str(user_id))
+                existing_cell = self.sheets_client.worksheet.find(str(user_id))
             except Exception:
                 logger.error(f"User {user_id} not found when trying to decrease tokens")
                 return False
@@ -90,7 +90,7 @@ class TokenService:
                 row_num = existing_cell.row
                 
                 # Получаем текущее количество токенов
-                tokens_cell = sheets_client.worksheet.cell(row_num, 6)  # 6 = столбец F
+                tokens_cell = self.sheets_client.worksheet.cell(row_num, 6)  # 6 = столбец F
                 
                 try:
                     current_tokens = int(tokens_cell.value or 0)
@@ -101,7 +101,7 @@ class TokenService:
                     
                     # Уменьшаем на 1
                     new_tokens = current_tokens - 1
-                    sheets_client.worksheet.update_cell(row_num, 6, new_tokens)
+                    self.sheets_client.worksheet.update_cell(row_num, 6, new_tokens)
                     
                     logger.info(f"Decreased tokens for user {user_id}: {current_tokens} -> {new_tokens}")
                     return True
@@ -149,7 +149,3 @@ class TokenService:
             return "❌ У вас закончились токены для генерации изображений!"
         
         return f"🎟️ У вас осталось токенов: {tokens}"
-
-
-# Глобальный экземпляр сервиса
-token_service = TokenService()

@@ -13,4 +13,8 @@ class Container:
         
         # Остальные независимые сервисы
         self.fal_client = FalClient()
-        self.analytics_service = AnalyticsService()
+        self.analytics_service = AnalyticsService(self.sheets_client)
+    
+    async def initialize(self):
+        """Инициализирует все сервисы"""
+        await self.sheets_client.initialize()

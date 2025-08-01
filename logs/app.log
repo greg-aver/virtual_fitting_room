@@ -1,50 +1,42 @@
-2025-07-31 15:23:35 | INFO | __main__:14 | Starting Virtual Fitting Room Bot
-2025-07-31 15:23:38 | INFO | storage.sheets_client:35 | Google Sheets client initialized successfully
-2025-07-31 15:23:40 | INFO | storage.sheets_client:84 | Updated user 1440426402 in row 2
-2025-07-31 15:23:44 | ERROR | services.token_service:48 | Invalid tokens value for user 1440426402: None
-2025-07-31 15:24:33 | INFO | storage.sheets_client:84 | Updated user 1440426402 in row 2
-2025-07-31 15:24:37 | ERROR | services.token_service:48 | Invalid tokens value for user 1440426402: None
-2025-07-31 15:27:55 | INFO | __main__:14 | Starting Virtual Fitting Room Bot
-2025-07-31 15:27:57 | INFO | storage.sheets_client:35 | Google Sheets client initialized successfully
-2025-07-31 15:28:20 | INFO | storage.sheets_client:84 | Updated user 1440426402 in row 2
-2025-07-31 15:28:24 | ERROR | services.token_service:55 | Invalid tokens value for user 1440426402: None
-2025-07-31 15:28:48 | INFO | bot.handlers.image_handler:168 | Photo saved: storage/temp\AgACAgIAAxkBAAN8aIthgaQTNAhy3puqbxqZVY5h054AAsD9MRvp51hIcxvRHFqU67MBAAMCAAN4AAM2BA.jpg
-2025-07-31 15:28:48 | INFO | image.validators.image_validator:17 | Image validated: storage/temp\AgACAgIAAxkBAAN8aIthgaQTNAhy3puqbxqZVY5h054AAsD9MRvp51hIcxvRHFqU67MBAAMCAAN4AAM2BA.jpg
-2025-07-31 15:28:53 | INFO | bot.handlers.image_handler:168 | Photo saved: storage/temp\AgACAgIAAxkBAAN-aIthhUvZxK4duqu3J36xvu419BgAAsH9MRvp51hIdEpZFCMSZaIBAAMCAAN4AAM2BA.jpg
-2025-07-31 15:28:53 | INFO | image.validators.image_validator:17 | Image validated: storage/temp\AgACAgIAAxkBAAN-aIthhUvZxK4duqu3J36xvu419BgAAsH9MRvp51hIdEpZFCMSZaIBAAMCAAN4AAM2BA.jpg
-2025-07-31 15:28:54 | INFO | services.token_service:52 | User 1440426402 has 10 tokens
-2025-07-31 15:28:55 | INFO | llm.clients.fal_client:33 | Starting virtual try-on with person: storage/temp\AgACAgIAAxkBAAN8aIthgaQTNAhy3puqbxqZVY5h054AAsD9MRvp51hIcxvRHFqU67MBAAMCAAN4AAM2BA.jpg, garment: storage/temp\AgACAgIAAxkBAAN-aIthhUvZxK4duqu3J36xvu419BgAAsH9MRvp51hIdEpZFCMSZaIBAAMCAAN4AAM2BA.jpg
-2025-07-31 15:28:55 | INFO | llm.clients.fal_client:36 | Uploading person image...
-2025-07-31 15:28:58 | INFO | llm.clients.fal_client:38 | Person image uploaded: https://v3.fal.media/files/panda/FfuDHpCcFbENH9n8AyVkq_AgACAgIAAxkBAAN8aIthgaQTNAhy3puqbxqZVY5h054AAsD9MRvp51hIcxvRHFqU67MBAAMCAAN4AAM2BA.jpg
-2025-07-31 15:28:58 | INFO | llm.clients.fal_client:40 | Uploading garment image...
-2025-07-31 15:28:59 | INFO | llm.clients.fal_client:42 | Garment image uploaded: https://v3.fal.media/files/elephant/a6YDVlb9fbmht12euTy6P_AgACAgIAAxkBAAN-aIthhUvZxK4duqu3J36xvu419BgAAsH9MRvp51hIdEpZFCMSZaIBAAMCAAN4AAM2BA.jpg
-2025-07-31 15:28:59 | INFO | llm.clients.fal_client:45 | Submitting virtual try-on request...
-2025-07-31 15:29:11 | INFO | llm.clients.fal_client:61 | Received result: {'images': [{'url': 'https://cdn.fashn.ai/96c32de1-9c1e-4fd0-a5f9-2d37b793d775/output_0.png', 'content_type': None, 'file_name': None, 'file_size': None}]}
-2025-07-31 15:29:11 | INFO | llm.clients.fal_client:66 | Virtual try-on completed successfully: https://cdn.fashn.ai/96c32de1-9c1e-4fd0-a5f9-2d37b793d775/output_0.png
-2025-07-31 15:29:16 | INFO | services.token_service:106 | Decreased tokens for user 1440426402: 10 -> 9
-2025-07-31 15:29:18 | INFO | services.token_service:52 | User 1440426402 has 9 tokens
-2025-07-31 15:29:20 | INFO | services.token_service:52 | User 1440426402 has 9 tokens
-2025-07-31 16:08:56 | INFO | __main__:14 | Starting Virtual Fitting Room Bot
-2025-07-31 16:09:00 | INFO | storage.sheets_client:42 | Google Sheets client initialized successfully (users + analytics)
-2025-07-31 16:09:02 | INFO | storage.sheets_client:91 | Updated user 1440426402 in row 2
-2025-07-31 16:09:06 | INFO | services.token_service:52 | User 1440426402 has 9 tokens
-2025-07-31 16:10:25 | INFO | bot.handlers.image_handler:177 | Photo saved: storage/temp\AgACAgIAAxkBAAOHaItrQq0KrUl8UR-x2NPvQK3GLS4AAhz-MRvp51hIOFbn_MMvUvQBAAMCAAN4AAM2BA.jpg
-2025-07-31 16:10:26 | INFO | image.validators.image_validator:17 | Image validated: storage/temp\AgACAgIAAxkBAAOHaItrQq0KrUl8UR-x2NPvQK3GLS4AAhz-MRvp51hIOFbn_MMvUvQBAAMCAAN4AAM2BA.jpg
-2025-07-31 16:11:30 | INFO | bot.handlers.image_handler:177 | Photo saved: storage/temp\AgACAgIAAxkBAAOJaItrgp1mqdvELeNWmQbhXlnoC8YAAh7-MRvp51hI3chfZr_nFI8BAAMCAAN4AAM2BA.jpg
-2025-07-31 16:11:30 | INFO | image.validators.image_validator:17 | Image validated: storage/temp\AgACAgIAAxkBAAOJaItrgp1mqdvELeNWmQbhXlnoC8YAAh7-MRvp51hI3chfZr_nFI8BAAMCAAN4AAM2BA.jpg
-2025-07-31 16:11:31 | INFO | services.token_service:52 | User 1440426402 has 9 tokens
-2025-07-31 16:11:32 | INFO | llm.clients.fal_client:38 | Starting virtual try-on with person: storage/temp\AgACAgIAAxkBAAOHaItrQq0KrUl8UR-x2NPvQK3GLS4AAhz-MRvp51hIOFbn_MMvUvQBAAMCAAN4AAM2BA.jpg, garment: storage/temp\AgACAgIAAxkBAAOJaItrgp1mqdvELeNWmQbhXlnoC8YAAh7-MRvp51hI3chfZr_nFI8BAAMCAAN4AAM2BA.jpg
-2025-07-31 16:11:32 | INFO | llm.clients.fal_client:41 | Uploading person image...
-2025-07-31 16:11:35 | INFO | llm.clients.fal_client:43 | Person image uploaded: https://v3.fal.media/files/monkey/w6_INDmL5gq-JzzYBqQWz_AgACAgIAAxkBAAOHaItrQq0KrUl8UR-x2NPvQK3GLS4AAhz-MRvp51hIOFbn_MMvUvQBAAMCAAN4AAM2BA.jpg
-2025-07-31 16:11:35 | INFO | llm.clients.fal_client:45 | Uploading garment image...
-2025-07-31 16:11:37 | INFO | llm.clients.fal_client:47 | Garment image uploaded: https://v3.fal.media/files/kangaroo/7B3OesNvmgYgwL9rB71yM_AgACAgIAAxkBAAOJaItrgp1mqdvELeNWmQbhXlnoC8YAAh7-MRvp51hI3chfZr_nFI8BAAMCAAN4AAM2BA.jpg
-2025-07-31 16:11:37 | INFO | llm.clients.fal_client:50 | Submitting virtual try-on request...
-2025-07-31 16:11:48 | INFO | llm.clients.fal_client:66 | Received result: {'images': [{'url': 'https://cdn.fashn.ai/c73515ae-ed48-4b78-9e39-1044d537f75a/output_0.png', 'content_type': None, 'file_name': None, 'file_size': None}]}
-2025-07-31 16:11:48 | INFO | llm.clients.fal_client:71 | Virtual try-on completed successfully: https://cdn.fashn.ai/c73515ae-ed48-4b78-9e39-1044d537f75a/output_0.png
-2025-07-31 16:11:50 | INFO | services.token_service:106 | Decreased tokens for user 1440426402: 9 -> 8
-2025-07-31 16:11:50 | INFO | storage.sheets_client:195 | Logged generation for user 1440426402 with ID 1
-2025-07-31 16:11:50 | INFO | services.analytics_service:38 | Analytics logged successfully for user 1440426402
-2025-07-31 16:11:52 | INFO | services.token_service:52 | User 1440426402 has 8 tokens
-2025-07-31 16:11:53 | INFO | services.token_service:52 | User 1440426402 has 8 tokens
-2025-07-31 16:21:42 | INFO | storage.sheets_client:96 | Added new user 482671038 with 10 tokens
-2025-07-31 16:21:46 | INFO | services.token_service:52 | User 482671038 has 10 tokens
+2025-08-01 09:06:02 | INFO | __main__:15 | Starting Virtual Fitting Room Bot
+2025-08-01 09:06:05 | INFO | storage.sheets_client:42 | Google Sheets client initialized successfully (users + analytics)
+2025-08-01 09:24:47 | INFO | __main__:14 | Starting Virtual Fitting Room Bot
+2025-08-01 09:24:51 | INFO | storage.sheets_client:42 | Google Sheets client initialized successfully (users + analytics)
+2025-08-01 09:25:08 | INFO | storage.sheets_client:91 | Updated user 1440426402 in row 2
+2025-08-01 09:25:12 | INFO | services.token_service:52 | User 1440426402 has 8 tokens
+2025-08-01 09:25:36 | INFO | bot.handlers.image_handler:39 | Photo saved: storage/temp\AgACAgIAAxkBAAOWaIxd4QxSZq1tOB8mGl_bGHgrzmAAAkn-MRvp52BIHOT4VckVE_wBAAMCAAN4AAM2BA.jpg
+2025-08-01 09:25:36 | INFO | image.validators.image_validator:17 | Image validated: storage/temp\AgACAgIAAxkBAAOWaIxd4QxSZq1tOB8mGl_bGHgrzmAAAkn-MRvp52BIHOT4VckVE_wBAAMCAAN4AAM2BA.jpg
+2025-08-01 09:25:44 | INFO | bot.handlers.image_handler:39 | Photo saved: storage/temp\AgACAgIAAxkBAAOYaIxd6vi0fP46XN2k-oDIO-Uoax4AAkr-MRvp52BIXqJ5FenmYqwBAAMCAAN4AAM2BA.jpg
+2025-08-01 09:25:44 | INFO | image.validators.image_validator:17 | Image validated: storage/temp\AgACAgIAAxkBAAOYaIxd6vi0fP46XN2k-oDIO-Uoax4AAkr-MRvp52BIXqJ5FenmYqwBAAMCAAN4AAM2BA.jpg
+2025-08-01 09:25:46 | INFO | services.token_service:52 | User 1440426402 has 8 tokens
+2025-08-01 09:25:46 | INFO | llm.clients.fal_client:38 | Starting virtual try-on with person: storage/temp\AgACAgIAAxkBAAOWaIxd4QxSZq1tOB8mGl_bGHgrzmAAAkn-MRvp52BIHOT4VckVE_wBAAMCAAN4AAM2BA.jpg, garment: storage/temp\AgACAgIAAxkBAAOYaIxd6vi0fP46XN2k-oDIO-Uoax4AAkr-MRvp52BIXqJ5FenmYqwBAAMCAAN4AAM2BA.jpg
+2025-08-01 09:25:46 | INFO | llm.clients.fal_client:41 | Uploading person image...
+2025-08-01 09:25:50 | INFO | llm.clients.fal_client:43 | Person image uploaded: https://v3.fal.media/files/tiger/29Ihl-2pHg_IgGZMQ7D8__AgACAgIAAxkBAAOWaIxd4QxSZq1tOB8mGl_bGHgrzmAAAkn-MRvp52BIHOT4VckVE_wBAAMCAAN4AAM2BA.jpg
+2025-08-01 09:25:50 | INFO | llm.clients.fal_client:45 | Uploading garment image...
+2025-08-01 09:25:52 | INFO | llm.clients.fal_client:47 | Garment image uploaded: https://v3.fal.media/files/panda/edPN065QtWukIQBA4WY5__AgACAgIAAxkBAAOYaIxd6vi0fP46XN2k-oDIO-Uoax4AAkr-MRvp52BIXqJ5FenmYqwBAAMCAAN4AAM2BA.jpg
+2025-08-01 09:25:52 | INFO | llm.clients.fal_client:50 | Submitting virtual try-on request...
+2025-08-01 09:26:05 | INFO | llm.clients.fal_client:66 | Received result: {'images': [{'url': 'https://cdn.fashn.ai/0f0da920-6f92-41f9-b293-13946031da9b/output_0.png', 'content_type': None, 'file_name': None, 'file_size': None}]}
+2025-08-01 09:26:05 | INFO | llm.clients.fal_client:71 | Virtual try-on completed successfully: https://cdn.fashn.ai/0f0da920-6f92-41f9-b293-13946031da9b/output_0.png
+2025-08-01 09:26:07 | INFO | services.token_service:106 | Decreased tokens for user 1440426402: 8 -> 7
+2025-08-01 09:26:08 | INFO | storage.sheets_client:195 | Logged generation for user 1440426402 with ID 2
+2025-08-01 09:26:08 | INFO | services.analytics_service:37 | Analytics logged successfully for user 1440426402
+2025-08-01 09:26:10 | INFO | services.token_service:52 | User 1440426402 has 7 tokens
+2025-08-01 09:26:12 | INFO | services.token_service:52 | User 1440426402 has 7 tokens
+2025-08-01 09:27:23 | INFO | bot.handlers.image_handler:39 | Photo saved: storage/temp\AgACAgIAAxkBAAOdaIxeTDhBGoQo8iTwi947vNcSsOQAAk3-MRvp52BIFC6vVKVNFVABAAMCAAN4AAM2BA.jpg
+2025-08-01 09:27:23 | INFO | image.validators.image_validator:17 | Image validated: storage/temp\AgACAgIAAxkBAAOdaIxeTDhBGoQo8iTwi947vNcSsOQAAk3-MRvp52BIFC6vVKVNFVABAAMCAAN4AAM2BA.jpg
+2025-08-01 09:27:31 | INFO | bot.handlers.image_handler:39 | Photo saved: storage/temp\AgACAgIAAxkBAAOYaIxd6vi0fP46XN2k-oDIO-Uoax4AAkr-MRvp52BIXqJ5FenmYqwBAAMCAAN4AAM2BA.jpg
+2025-08-01 09:27:31 | INFO | image.validators.image_validator:17 | Image validated: storage/temp\AgACAgIAAxkBAAOYaIxd6vi0fP46XN2k-oDIO-Uoax4AAkr-MRvp52BIXqJ5FenmYqwBAAMCAAN4AAM2BA.jpg
+2025-08-01 09:27:32 | INFO | services.token_service:52 | User 1440426402 has 7 tokens
+2025-08-01 09:27:36 | INFO | llm.clients.fal_client:38 | Starting virtual try-on with person: storage/temp\AgACAgIAAxkBAAOdaIxeTDhBGoQo8iTwi947vNcSsOQAAk3-MRvp52BIFC6vVKVNFVABAAMCAAN4AAM2BA.jpg, garment: storage/temp\AgACAgIAAxkBAAOYaIxd6vi0fP46XN2k-oDIO-Uoax4AAkr-MRvp52BIXqJ5FenmYqwBAAMCAAN4AAM2BA.jpg
+2025-08-01 09:27:36 | INFO | llm.clients.fal_client:41 | Uploading person image...
+2025-08-01 09:27:38 | INFO | llm.clients.fal_client:43 | Person image uploaded: https://v3.fal.media/files/panda/ECbP__YSzDD9tH83Utfwq_AgACAgIAAxkBAAOdaIxeTDhBGoQo8iTwi947vNcSsOQAAk3-MRvp52BIFC6vVKVNFVABAAMCAAN4AAM2BA.jpg
+2025-08-01 09:27:38 | INFO | llm.clients.fal_client:45 | Uploading garment image...
+2025-08-01 09:27:39 | INFO | llm.clients.fal_client:47 | Garment image uploaded: https://v3.fal.media/files/panda/0IN_Q7zxah_53b5lxZFM1_AgACAgIAAxkBAAOYaIxd6vi0fP46XN2k-oDIO-Uoax4AAkr-MRvp52BIXqJ5FenmYqwBAAMCAAN4AAM2BA.jpg
+2025-08-01 09:27:39 | INFO | llm.clients.fal_client:50 | Submitting virtual try-on request...
+2025-08-01 09:27:53 | INFO | llm.clients.fal_client:66 | Received result: {'images': [{'url': 'https://cdn.fashn.ai/06ec8019-6ae8-45c9-b8c1-788d43ced6b7/output_0.png', 'content_type': None, 'file_name': None, 'file_size': None}]}
+2025-08-01 09:27:53 | INFO | llm.clients.fal_client:71 | Virtual try-on completed successfully: https://cdn.fashn.ai/06ec8019-6ae8-45c9-b8c1-788d43ced6b7/output_0.png
+2025-08-01 09:27:56 | INFO | services.token_service:106 | Decreased tokens for user 1440426402: 7 -> 6
+2025-08-01 09:27:57 | INFO | storage.sheets_client:195 | Logged generation for user 1440426402 with ID 2
+2025-08-01 09:27:57 | INFO | services.analytics_service:37 | Analytics logged successfully for user 1440426402
+2025-08-01 09:27:58 | INFO | services.token_service:52 | User 1440426402 has 6 tokens
+2025-08-01 09:27:59 | INFO | services.token_service:52 | User 1440426402 has 6 tokens
