@@ -73,7 +73,7 @@ def create_router(container):
                 return
 
             await message.bot.send_chat_action(chat_id=message.chat.id, action="typing")
-            await message.answer("Обрабатываю виртуальную примерку...")
+            processing_msg = await message.answer("Обрабатываю виртуальную примерку...")
 
             typing_task = asyncio.create_task(
                 send_typing_periodically(message.bot, message.chat.id, duration=60)
@@ -92,6 +92,11 @@ def create_router(container):
                         garment_url=result_data['garment_url'],
                         result_url=result_data['result_url']
                     )
+
+                    # Удаляем сообщение о процессе виртуальной примерки
+                    await message.bot.delete_message(chat_id=message.chat.id,
+                                                     message_id=processing_msg.message_id)
+
                     await message.answer(f"Готово! Результат виртуальной примерки: {result_data['result_url']}")
                     tokens_message = await container.token_service.get_tokens_message(user_id)
                     await message.answer(tokens_message)
@@ -103,6 +108,12 @@ def create_router(container):
                     else:
                         await state.clear()
                 else:
+                    # Удаляем сообщение о процессе виртуальной примерки
+                    try:
+                        await message.bot.delete_message(chat_id=message.chat.id,
+                                                        message_id=processing_msg.message_id)
+                    except:
+                        pass
                     await message.answer("Произошла ошибка при обработке изображений")
                     tokens_message = await container.token_service.get_tokens_message(user_id)
                     await message.answer(tokens_message)
@@ -112,6 +123,11 @@ def create_router(container):
 
             except Exception as e:
                 typing_task.cancel()
+                try:
+                    await message.bot.delete_message(chat_id=message.chat.id,
+                                                     message_id=processing_msg.message_id)
+                except:
+                    pass
                 logger.error(f"Error during virtual try-on: {e}")
                 await message.answer("Произошла ошибка при обработке изображений")
                 tokens_message = await container.token_service.get_tokens_message(user_id)
