@@ -4,7 +4,8 @@
 import asyncio
 from aiogram import Bot, Dispatcher
 from config.settings import settings
-from bot.handlers.image_handler import router
+from container import Container
+from bot.handlers.image_handler import create_router
 from utils.logger import logger
 from storage.sheets_client import sheets_client
 
@@ -22,7 +23,10 @@ async def main():
     dp = Dispatcher()
     
     # >4:;NG05< @>CB5@K
+    container = Container()
+    router = create_router(container)
     dp.include_router(router)
+    bot.container = container
     
     # 0?CA: 1>B0
     try:
