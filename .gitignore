@@ -1,0 +1,19 @@
+# Системные файлы ОС
+*.DS_Store
+*.Thumbs.db
+
+# Виртуальное окружение
+venv/
+.env/
+
+# Файлы IDE
+.idea/
+*.vscode/
+
+# Кэш Python
+__pycache__/
+*.pyc
+
+# Личное/секретное
+credential-google-sheets.json
+*.env
