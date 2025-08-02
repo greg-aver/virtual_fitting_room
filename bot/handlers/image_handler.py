@@ -52,17 +52,17 @@ def create_router(container):
         current_state = await state.get_state()
         photo_path = await save_photo(message)
         if not photo_path:
-            await message.answer("Ошибка сохранения фото")
+            await message.answer("Σφάλμα αποθήκευσης φωτογραφίας")
             return
 
         if not validate_image(photo_path):
-            await message.answer("Некорректное изображение")
+            await message.answer("Μη έγκυρη εικόνα")
             return
 
         if current_state == ImageProcessing.waiting_first_image:
             await state.update_data(human_image=photo_path)
             await state.set_state(ImageProcessing.waiting_second_image)
-            await message.answer("Фото получено! Теперь пришлите фото одежды")
+            await message.answer("Φωτογραφία παραλήφθηκε! Τώρα στείλτε φωτογραφία ρούχων")
         elif current_state == ImageProcessing.waiting_second_image:
             await state.update_data(garment_image=photo_path)
             user_id = message.from_user.id
@@ -73,7 +73,7 @@ def create_router(container):
                 return
 
             await message.bot.send_chat_action(chat_id=message.chat.id, action="typing")
-            processing_msg = await message.answer("Обрабатываю виртуальную примерку...")
+            processing_msg = await message.answer("Επεξεργάζομαι την εικονική δοκιμή...")
 
             typing_task = asyncio.create_task(
                 send_typing_periodically(message.bot, message.chat.id, duration=60)
@@ -97,7 +97,7 @@ def create_router(container):
                     await message.bot.delete_message(chat_id=message.chat.id,
                                                      message_id=processing_msg.message_id)
 
-                    await message.answer(f"Готово! Результат виртуальной примерки: {result_data['result_url']}")
+                    await message.answer(f"Έτοιμο! Αποτέλεσμα εικονικής δοκιμής: {result_data['result_url']}")
                     tokens_message = await container.token_service.get_tokens_message(user_id)
                     await message.answer(tokens_message)
 
@@ -114,7 +114,7 @@ def create_router(container):
                                                         message_id=processing_msg.message_id)
                     except:
                         pass
-                    await message.answer("Произошла ошибка при обработке изображений")
+                    await message.answer("Προέκυψε σφάλμα κατά την επεξεργασία των εικόνων")
                     tokens_message = await container.token_service.get_tokens_message(user_id)
                     await message.answer(tokens_message)
                     await asyncio.sleep(1)
@@ -129,14 +129,14 @@ def create_router(container):
                 except:
                     pass
                 logger.error(f"Error during virtual try-on: {e}")
-                await message.answer("Произошла ошибка при обработке изображений")
+                await message.answer("Προέκυψε σφάλμα κατά την επεξεργασία των εικόνων")
                 tokens_message = await container.token_service.get_tokens_message(user_id)
                 await message.answer(tokens_message)
                 await asyncio.sleep(1)
                 await message.answer(MESSAGES["ask_photo_person"])
                 await state.set_state(ImageProcessing.waiting_first_image)
         else:
-            await message.answer("Привет! Для начала работы отправьте команду /start")
+            await message.answer("Γεια σας! Για να ξεκινήσετε, στείλτε την εντολή /start")
 
     @router.message(F.text == "/start")
     async def start_handler(message: Message, state: FSMContext):
