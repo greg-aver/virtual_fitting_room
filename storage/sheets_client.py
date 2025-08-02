@@ -131,24 +131,15 @@ class SheetsClient:
                 logger.error("Analytics worksheet not initialized")
                 return 1
                 
-            # Получаем все значения в первом столбце (ID)
-            id_column = self.analytics_worksheet.col_values(1)
+            # Получаем количество строк с данными (не считая заголовок)
+            all_values = self.analytics_worksheet.get_all_values()
             
-            # Если есть только заголовок или таблица пустая
-            if len(id_column) <= 1:
+            # Если таблица пустая или только заголовок
+            if len(all_values) <= 1:
                 return 1
                 
-            # Находим максимальный ID и прибавляем 1
-            max_id = 0
-            for cell_value in id_column[1:]:  # Пропускаем заголовок
-                try:
-                    current_id = int(cell_value)
-                    if current_id > max_id:
-                        max_id = current_id
-                except ValueError:
-                    continue
-                    
-            return max_id + 1
+            # Возвращаем количество строк (следующий ID)
+            return len(all_values)
             
         except Exception as e:
             logger.error(f"Failed to get next analytics ID: {e}")
@@ -179,7 +170,11 @@ class SheetsClient:
             # Текущее время
             timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             
-            # Данные для записи
+            # Находим первую пустую строку
+            all_values = self.analytics_worksheet.get_all_values()
+            next_row = len(all_values) + 1
+            
+            # Данные для записи в конкретные ячейки
             analytics_data = [
                 next_id,           # A: id
                 user_id,           # B: id_user
@@ -189,10 +184,11 @@ class SheetsClient:
                 timestamp          # F: timestamp
             ]
             
-            # Добавляем строку
-            self.analytics_worksheet.append_row(analytics_data)
+            # Записываем данные в конкретный диапазон A:F
+            cell_range = f"A{next_row}:F{next_row}"
+            self.analytics_worksheet.update(cell_range, [analytics_data])
             
-            logger.info(f"Logged generation for user {user_id} with ID {next_id}")
+            logger.info(f"Logged generation for user {user_id} with ID {next_id} in row {next_row}")
             return True
             
         except Exception as e:
