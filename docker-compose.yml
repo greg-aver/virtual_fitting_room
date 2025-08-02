@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  virtual-fitting-bot:
+    build: .
+    container_name: virtual-fitting-bot
+    restart: unless-stopped
+    environment:
+      # Telegram Bot
+      - BOT_TOKEN=${BOT_TOKEN}
+      
+      # FAL AI API Settings
+      - LLM_API_KEY=${LLM_API_KEY}
+      - LLM_API_URL=${LLM_API_URL}
+      - LLM_MODEL=${LLM_MODEL}
+      
+      # Google Sheets
+      - USERS_SHEET_ID=${USERS_SHEET_ID}
+      - ANALYTICS_SHEET_ID=${ANALYTICS_SHEET_ID}
+      - GOOGLE_CREDENTIALS_FILE=${GOOGLE_CREDENTIALS_FILE}
+      
+      # App Settings
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - TEMP_DIR=${TEMP_DIR:-storage/temp}
+      - CACHE_DIR=${CACHE_DIR:-storage/cache}
+    
+    volumes:
+      # Монтируем директории для логов и хранения
+      - ./logs:/app/logs
+      - ./storage:/app/storage
+      # Монтируем Google credentials файл
+      - ./credential-google-sheets.json:/app/credential-google-sheets.json:ro
+    
+    # Ограничения ресурсов
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.5'
+        reservations:
+          memory: 256M
+          cpus: '0.25'

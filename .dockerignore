@@ -1,0 +1,58 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env
+pip-log.txt
+pip-delete-this-directory.txt
+.tox
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.venv/
+.pytest_cache/
+
+# Временные файлы
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# IDE файлы
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Документация
+*.md
+!CLAUDE.md
+
+# Логи (будут создаваться в контейнере)
+logs/*
+!logs/.gitkeep
+
+# Временные файлы хранения (будут создаваться в контейнере)
+storage/temp/*
+storage/cache/*
+!storage/temp/.gitkeep
+!storage/cache/.gitkeep
+
+# Docker файлы
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Системные файлы
+.env.example

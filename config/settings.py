@@ -6,7 +6,12 @@ import os
 from dotenv import load_dotenv
 
 # Загружаем переменные из .env файла
-load_dotenv()
+# Пытаемся найти .env в текущей директории или в родительской
+import pathlib
+env_path = pathlib.Path('.env')
+if not env_path.exists():
+    env_path = pathlib.Path('../.env')
+load_dotenv(env_path)
 
 
 class Settings:
@@ -15,6 +20,8 @@ class Settings:
     def __init__(self):
         # Telegram Bot
         self.bot_token = os.getenv('BOT_TOKEN')
+        if not self.bot_token:
+            raise ValueError("BOT_TOKEN не найден в переменных окружения. Проверьте файл .env")
         
         # LLM API
         self.llm_api_key = os.getenv('LLM_API_KEY')

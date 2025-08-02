@@ -18,6 +18,35 @@ python main.py
 pip install -r requirements.txt
 ```
 
+### Запуск через Docker (Рекомендуемый способ)
+```bash
+# Сборка образа
+docker build -t virtual-fitting-bot .
+
+# Запуск контейнера
+docker run -d --name virtual-fitting-bot --env-file .env virtual-fitting-bot
+
+# Или через docker-compose
+docker-compose up -d
+```
+
+### Команды Docker
+```bash
+# Остановка контейнера
+docker-compose down
+
+# Просмотр логов
+docker-compose logs -f
+
+# Перезапуск
+docker-compose restart
+
+# Обновление (после изменений кода)
+docker-compose down
+docker-compose build --no-cache
+docker-compose up -d
+```
+
 ### Переменные окружения
 Создайте файл `.env` со следующими переменными:
 ```
